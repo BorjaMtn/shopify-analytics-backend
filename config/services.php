@@ -14,6 +14,18 @@ return [
     |
     */
 
+    'google' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URI'),
+        'scopes' => [env('GOOGLE_ANALYTICS_SCOPES')], // Lee el scope desde .env
+        // Opciones extra que pasaremos al provider OAuth
+        'options' => [
+            'access_type' => 'offline', // Para obtener refresh_token
+            'prompt' => 'consent',      // Para forzar consentimiento (útil en dev)
+        ]
+    ],
+
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
     ],

@@ -35,12 +35,21 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
+    // Dentro de config/auth.php
+'guards' => [
+    'web' => [
+        'driver' => 'session',
+        'provider' => 'users',
     ],
+
+    // --- ¡ASEGÚRATE DE QUE ESTA SECCIÓN EXISTE Y ES ASÍ! ---
+    'api' => [
+        'driver' => 'sanctum', // Debe usar 'sanctum'
+        'provider' => 'users',  // Debe usar el provider 'users'
+    ],
+    // -------------------------------------------------------
+
+], // Fin del array 'guards'
 
     /*
     |--------------------------------------------------------------------------
